@@ -4,10 +4,11 @@ import styled from 'styled-components'
 import { PageHero } from '../components'
 import aboutImg from '../assets/hero-bcg.jpeg'
 import { useProductsContext } from '../context/products_context'
-const url = 'http://meso.be4maps.com/api/about?api_username=ahmed&api_password=123456&api_lang=en'
 import {
   Loading,
 } from '../components'
+const url = 'http://meso.be4maps.com/api/about?api_username=ahmed&api_password=123456&api_lang=en'
+
 const AboutPage = () => {
   const {featchAboutData ,  ABOUT_DATA_LOADING:loading ,  ABOUT_DATA :About} = useProductsContext()
   useEffect(() => {
@@ -26,7 +27,7 @@ const AboutPage = () => {
     <main>
       <PageHero title="About" />
       <Wrapper className="page section section-center">
-        <img src={aboutImg} />
+        <img src={aboutImg} alt="img" />
         <article key={id}>
           <div className='title'>
             <h2>{about_title}</h2>

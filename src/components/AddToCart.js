@@ -1,14 +1,10 @@
-/* eslint-disable react/prop-types */
-/* eslint-disable no-unused-vars */
+
 
 import React, { useState } from 'react'
 import styled from 'styled-components'
 import { Link } from 'react-router-dom'
-import { FaCheck } from 'react-icons/fa'
 import { useCartContext } from '../context/cart_context'
 import AmountButtons from './AmountButtons'
-import { GiButtonFinger } from 'react-icons/gi'
-
 const AddToCart = ({products}) => {
   const{addToCart} = useCartContext()
   const {id , total_quantity , product_images} = products

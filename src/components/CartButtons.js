@@ -1,39 +1,34 @@
-/* eslint-disable no-unused-vars */
-
-import React from 'react'
-import { BiCart , BiUser } from 'react-icons/bi'
-import { AiOutlineHeart } from 'react-icons/ai'
-import { Link } from 'react-router-dom'
-import styled from 'styled-components'
-import { useProductsContext } from '../context/products_context'
-import { useCartContext } from '../context/cart_context'
+import React from "react";
+import { BiCart, BiUser } from "react-icons/bi";
+import { AiOutlineHeart } from "react-icons/ai";
+import { Link } from "react-router-dom";
+import styled from "styled-components";
+import { useProductsContext } from "../context/products_context";
+import { useCartContext } from "../context/cart_context";
 
 const CartButtons = () => {
-  const {total_items} = useCartContext()
-  const {closeSidebar} = useProductsContext()
+  const { total_items } = useCartContext();
+  const { closeSidebar } = useProductsContext();
   return (
-    <Wrapper className='cart-btn-wrapper'>
-      <button type="button" className="auth-btn"  >
+    <Wrapper className="cart-btn-wrapper">
+      <button type="button" className="auth-btn">
         <BiUser />
       </button>
-      <button type="button" className="auth-btn"  >
-        <span className='cart-container'>
+      <button type="button" className="auth-btn">
+        <span className="cart-container">
           <AiOutlineHeart />
           <span className="cart-value">{4}</span>
         </span>
       </button>
-      <Link to='/cart' className='cart-btn' onClick={closeSidebar}>
-        <span className='cart-container'>
-          <BiCart/>
+      <Link to="/cart" className="cart-btn" onClick={closeSidebar}>
+        <span className="cart-container">
+          <BiCart />
           <span className="cart-value">{total_items}</span>
         </span>
       </Link>
-     
-     
-     
     </Wrapper>
-  )
-}
+  );
+};
 
 const Wrapper = styled.div`
   display: grid;
@@ -87,5 +82,5 @@ const Wrapper = styled.div`
       margin-left: 5px;
     }
   }
-`
-export default CartButtons
+`;
+export default CartButtons;

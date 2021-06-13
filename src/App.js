@@ -1,22 +1,12 @@
-/* eslint-disable react/no-children-prop */
-/* eslint-disable */
-import React from 'react'
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom'
-import { Navbar, Sidebar } from './components'
-import  ScrollToTop  from './components/ScrollTop'
+import React from "react";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Navbar, Sidebar } from "./components";
+import ScrollToTop from "./components/ScrollTop";
 
-import Footer from './components/Footer/Footer'
-import ProductsPage from './pages/ProductsPage'
-import {
-  Home,
-  About,
-  Error,
-  Products,
-  SingleProduct,
-  PrivateRouter,
-  Cart,
-} from './pages'
-import AllProduct from './pages/AllProduct'
+import Footer from "./components/Footer/Footer";
+import ProductsPage from "./pages/ProductsPage";
+import { Home, About, Error, SingleProduct, Cart } from "./pages";
+import AllProduct from "./pages/AllProduct";
 
 function App() {
   return (
@@ -25,26 +15,29 @@ function App() {
       <Navbar />
       <Sidebar />
       <Switch>
-        <Route exact path='/'>
+        <Route exact path="/">
           <Home />
         </Route>
-        <Route exact path='/about'>
-          <About/>
+        <Route exact path="/about">
+          <About />
         </Route>
-        <Route exact path='/category/:id' children={<ProductsPage/>}>
+        <Route exact path="/category/:id">
+          <ProductsPage />
         </Route>
-        <Route exact path='/products' children={<AllProduct/>}></Route>
-        <Route exact path='/products/:id' children={<SingleProduct/>}></Route>
-        <Route exact path='/cart'>
-          <Cart/>
+        <Route exact path="/products">
+          <AllProduct />
         </Route>
-        <Route path='*'>
-          <Error/>
+        <Route exact path="/products/:id" children={<SingleProduct />}></Route>
+        <Route exact path="/cart">
+          <Cart />
+        </Route>
+        <Route path="*">
+          <Error />
         </Route>
       </Switch>
       <Footer />
     </Router>
-  )
+  );
 }
 
-export default App
+export default App;

@@ -7,10 +7,11 @@ import { FaFacebook, FaInstagram, FaLinkedin, FaTwitter } from 'react-icons/fa'
 import { HiOutlineMail , HiOutlinePhone } from 'react-icons/hi'
 import { SiGooglemaps } from 'react-icons/si'
 import { useProductsContext } from '../../context/products_context'
-const url = 'https://meso.be4maps.com/api/contact?api_username=ahmed&api_password=123456&api_lang=en'
 import {
   Loading,
 } from '../../components'
+const url = 'https://meso.be4maps.com/api/contact?api_username=ahmed&api_password=123456&api_lang=en'
+
 function Footer() {
   const {products} = useProductsContext()
   const {featchContactData ,  CONTACT_DATA_LOADING:loading , CONTACT:contact} = useProductsContext()
