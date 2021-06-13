@@ -1,0 +1,66 @@
+/* eslint-disable react/prop-types */
+/* eslint-disable no-unused-vars */
+import React from 'react'
+import styled from 'styled-components'
+import { formatPrice } from '../utils/helpers'
+import { Link } from 'react-router-dom'
+const ListView = ({products}) => {
+  return (
+    <Wrapper>
+      {products.map((product)=>{
+        const {prId , title , main_image , last_price , content} = product
+        return(
+          <article key={prId}>
+            <img src={`http://meso.be4maps.com/public/upload/${main_image}`} alt={title}  />
+            <div>
+              <h4>{title}</h4>
+              <h5 className="price">{formatPrice(last_price)}</h5>
+              <p>{content.substring(0,150)}...</p>
+              <Link to={`/products/${prId}`} className="btn" >Details</Link>
+            </div>
+          </article>
+        )
+      })}
+    </Wrapper>
+  )
+}
+
+const Wrapper = styled.section`
+  display: grid;
+  row-gap: 3rem;
+
+  img {
+    width: 100%;
+    display: block;
+    width: 300px;
+    height: 200px;
+    object-fit: contain;
+    border-radius: var(--radius);
+    margin-bottom: 1rem;
+  }
+  h4 {
+    margin-bottom: 0.5rem;
+  }
+  .price {
+    color: var(--clr-primary-6);
+    margin-bottom: 0.75rem;
+  }
+  p {
+    max-width: 45em;
+    margin-bottom: 1rem;
+  }
+  .btn {
+    font-size: 0.5rem;
+    padding: 0.25rem 0.5rem;
+  }
+  @media (min-width: 992px) {
+    article {
+      display: grid;
+      grid-template-columns: auto 1fr;
+      column-gap: 2rem;
+      align-items: center;
+    }
+  }
+`
+
+export default ListView
